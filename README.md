@@ -1,7 +1,6 @@
 # Running Dashboard in Power BI
 
-This project is a **Power BI dashboard** built from my personal running workouts (2022).  
-The goal was to analyze training volume, intensity, and trends using self-collected data.
+Dashboard built from random AI created workouts (2022).  
 
 ## Features
 - **KPI cards**: Total Distance, Avg Heart Rate, Avg Pace, 28D Rolling Distance, Best Week
@@ -11,8 +10,7 @@ The goal was to analyze training volume, intensity, and trends using self-collec
 
 ## Tools & Methods
 - Power BI, Power Query for cleaning (datatypes, locale handling)
-- DAX measures for calculations (e.g. cumulative distance, rolling 28-day totals, pace formatting)
-- Custom color theme for professional look
+- DAX measures for calculations (e.g. cumulative distance, rolling 28-day totals)
 
 ## Screenshots
 ![Overview](overview.png)  
