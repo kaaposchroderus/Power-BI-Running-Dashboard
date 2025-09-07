@@ -1,0 +1,47 @@
+measures.txt
+Avg Pace 28D (min/km) = 
+DIVIDE (
+    CALCULATE ( [Total Duration (min)], DATESINPERIOD ( Calendar[Date], MAX ( Calendar[Date] ), -28, DAY ) ),
+    CALCULATE ( [Total Distance (km)], DATESINPERIOD ( Calendar[Date], MAX ( Calendar[Date] ), -28, DAY ) )
+)
+
+Best Week Distance (km) = 
+MAXX (
+    SUMMARIZE ( Calendar, Calendar[WeekStart], "wkDist", [Total Distance (km)] ),
+    [wkDist]
+)
+
+Cumulative Distance (km) = 
+CALCULATE (
+    [Total Distance (km)],
+    FILTER (
+        ALL ( Calendar ),
+        Calendar[Date] <= MAX ( Calendar[Date] )
+    )
+)
+
+Calendar = 
+ADDCOLUMNS (
+    CALENDAR (
+        MIN ( workout_data[workout_date] ),
+        MAX ( workout_data[workout_date] )
+    ),
+    "Year", YEAR ( [Date] ),
+    "MonthNo", MONTH ( [Date] ),
+    "YearMonth", FORMAT ( [Date], "YYYY-MM" ),
+    "WeekNum", WEEKNUM ( [Date], 2 ),
+    "WeekStart", [Date] - WEEKDAY ( [Date], 2 ) + 1
+)
+
+Distance 28D = 
+CALCULATE (
+    [Total Distance (km)],
+    DATESINPERIOD ( Calendar[Date], MAX ( Calendar[Date] ), -28, DAY )
+)
+
+Total Distance (km) = SUM ( workout_data[distance_km] )
+
+Weekly Distance (km) = 
+VAR wk = MAX ( Calendar[WeekStart] )
+RETURN
+CALCULATE ( [Total Distance (km)], Calendar[WeekStart] = wk )
