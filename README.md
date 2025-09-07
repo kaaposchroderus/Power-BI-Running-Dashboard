@@ -1,5 +1,4 @@
 # Running Dashboard in Power BI
-running data made with AI
 
 This project is a **Power BI dashboard** built from my personal running workouts (2022).  
 The goal was to analyze training volume, intensity, and trends using self-collected data.
