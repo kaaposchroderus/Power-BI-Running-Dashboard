@@ -8,7 +8,7 @@ The goal was to analyze training volume, intensity, and trends using self-collec
 - **KPI cards**: Total Distance, Avg Heart Rate, Avg Pace, 28D Rolling Distance, Best Week
 - **Trends**: Weekly distance and cumulative distance over time
 - **Breakdowns**: Distance by workout type, weather conditions
-- **Detail table**: Raw workouts (date, type, distance, duration, pace, HR, elevation)
+- **Detail table**: Raw workouts (date, type, distance, duration, pace, HR)
 
 ## Tools & Methods
 - Power BI, Power Query for cleaning (datatypes, locale handling)
